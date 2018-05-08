@@ -9,9 +9,9 @@ import {
   LOAD_QUESTIONS_REQUEST,
   SUCCESS_URL,
   FAIL_URL,
-
+  SAVE_TIME_REQUEST
 } from '../constants'
-import {loadQuestionsSuccess, loadQuestionsRequest, loadAllResults} from "../AC/index"
+import {loadQuestionsSuccess, loadQuestionsRequest, loadAllResults, saveTimeToStore} from "../AC/index"
 import { push } from 'connected-react-router'
 
 import {
@@ -81,11 +81,17 @@ export function * goToNextScreen({payload}) {
     yield goToSuccessScreen()
   }
 }
-
+export function * goToNextTick() {
+  const {time} = yield select();
+  const nextTime = time - 1;
+  yield put(saveTimeToStore(nextTime));
+  if (nextTime <= 0) yield put(push(FAIL_URL))
+}
 export default function * rootSaga() {
   yield takeLatest(LOAD_QUESTIONS_REQUEST, loadQuestions);
   yield takeLatest(START_NEW_GAME_REQUEST, goToStartNewGame);
   yield takeLatest(START_GAME_REQUEST, goToStartGame);
   yield takeLatest(TO_NEXT_SCREEN_REQUEST, goToNextScreen);
-  yield takeLatest(LOAD_ALL_RESULTS_REQUEST, loadResults)
+  yield takeLatest(LOAD_ALL_RESULTS_REQUEST, loadResults);
+  yield takeLatest(SAVE_TIME_REQUEST, goToNextTick)
 }

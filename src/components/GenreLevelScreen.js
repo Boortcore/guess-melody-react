@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import GenreAnswer from './GenreAnswer';
+import Timer from './Timer'
 class GenreLevelScreen extends Component {
   constructor() {
     super();
@@ -24,13 +25,16 @@ class GenreLevelScreen extends Component {
     const {question} = this.props;
     return (
       <section className="main main--level main--level-genre">
-        <h2 className="title">{question.question}</h2>
-        <form className="genre">
-          {question.answers.map((answer, index) => {
-            return <GenreAnswer key={answer.src} answer={this.state[`a-` + index]} onAnswer={this.chooseAnswer} />
-          })}
-          <button disabled={this.isDisabled()} onClick={this.onClickAnswer} className="genre-answer-send" type="submit">Ответить</button>
-        </form>
+        <Timer/>
+        <div className="main-wrap">
+          <h2 className="title">{question.question}</h2>
+          <form className="genre">
+            {question.answers.map((answer, index) => {
+              return <GenreAnswer key={answer.src} answer={this.state[`a-` + index]} onAnswer={this.chooseAnswer} />
+            })}
+            <button disabled={this.isDisabled()} onClick={this.onClickAnswer} className="genre-answer-send" type="submit">Ответить</button>
+          </form>
+        </div>
       </section>
     );
   }

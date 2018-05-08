@@ -5,7 +5,9 @@ import {
   START_GAME_REQUEST,
   START_NEW_GAME_REQUEST,
   TO_NEXT_SCREEN_REQUEST,
-  LOAD_ALL_RESULTS
+  LOAD_ALL_RESULTS,
+  SAVE_TIME,
+  SAVE_TIME_REQUEST
 } from '../constants'
 
 export function loadQuestionsSuccess(data) {
@@ -48,5 +50,17 @@ export function loadAllResults(data) {
   return {
     type: LOAD_ALL_RESULTS,
     payload: data
+  }
+}
+
+export function saveTimeRequest() {
+  return {
+    type: SAVE_TIME_REQUEST,
+  }
+}
+export function saveTimeToStore(time) {
+  return {
+    type: SAVE_TIME,
+    payload: time
   }
 }
