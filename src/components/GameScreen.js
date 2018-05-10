@@ -30,6 +30,6 @@ class GameScreen extends Component {
 
 export default connect(state => ({
   question: getQuestion(state),
-  levelNumber: state.currentLevel,
-  loading: state.loading
+  levelNumber: state.info.currentLevel,
+  loading: state.info.loading
 }), {goToNextScreen, loadQuestionsRequest})(GameScreen);

@@ -1,3 +1,3 @@
 export function getQuestion(state) {
-  return state.questions[state.currentLevel]
+  return state.info.questions[state.info.currentLevel]
 }

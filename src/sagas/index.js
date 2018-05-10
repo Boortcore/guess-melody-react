@@ -82,8 +82,8 @@ export function * goToNextScreen({payload}) {
   }
 }
 export function * goToNextTick() {
-  const {time} = yield select();
-  const nextTime = time - 1;
+  const {info} = yield select();
+  const nextTime = info.time - 1;
   yield put(saveTimeToStore(nextTime));
   if (nextTime <= 0) yield put(push(FAIL_URL))
 }

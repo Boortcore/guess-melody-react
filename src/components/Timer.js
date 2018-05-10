@@ -49,11 +49,10 @@ class Timer extends Component {
   }
   componentWillUnmount() {
     clearInterval(this._interval);
-    const {time} = this.props;
-    this.props.saveTimeRequest(time)
+    this.props.saveTimeRequest()
   }
 }
 
 export default connect(state => ({
-  time: state.time
+  time: state.info.time
 }), {saveTimeRequest})(Timer);
