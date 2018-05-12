@@ -11,7 +11,7 @@ import {
 const initialState = {
   questions: [],
   lives: 3,
-  time: MAX_TIME,
+  time: 10,
   currentLevel: 0,
   correctAnswers: 0,
   loading: true,

@@ -14,14 +14,14 @@ class Timer extends Component {
   componentDidMount() {
     this.changeTime();
     this._interval = setInterval(() => {
-      this.changeTime()
+      this.props.saveTimeRequest();
+      this.changeTime();
     }, 1000)
   }
   changeTime() {
     const {time} = this.props;
-    this.props.saveTimeRequest();
-    const timerView = this.shadowRound * (MAX_TIME - time + 1);
-    this.setState({timerView})
+    const timerView = this.shadowRound * (MAX_TIME - time);
+    this.setState({timerView});
   }
   render() {
     const {time} = this.props;
@@ -48,7 +48,6 @@ class Timer extends Component {
   }
   componentWillUnmount() {
     clearInterval(this._interval);
-    this.props.saveTimeRequest()
   }
 }
 
