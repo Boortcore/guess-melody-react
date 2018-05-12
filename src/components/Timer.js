@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {saveTimeRequest} from "../AC/index"
+import {changeTimeRequest} from "../AC/index"
 import {getTime} from "../selectors/index"
 import {MAX_TIME, RADIUS} from "../constants/index"
 
@@ -14,7 +14,7 @@ class Timer extends Component {
   componentDidMount() {
     this.changeTime();
     this._interval = setInterval(() => {
-      this.props.saveTimeRequest();
+      this.props.changeTimeRequest();
       this.changeTime();
     }, 1000)
   }
@@ -53,4 +53,4 @@ class Timer extends Component {
 
 export default connect(state => ({
   time: getTime(state)
-}), {saveTimeRequest})(Timer);
+}), {changeTimeRequest})(Timer);

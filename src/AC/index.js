@@ -53,7 +53,7 @@ export function loadAllResults(data) {
   }
 }
 
-export function saveTimeRequest() {
+export function changeTimeRequest() {
   return {
     type: CHANGE_TIME_REQUEST,
   }
