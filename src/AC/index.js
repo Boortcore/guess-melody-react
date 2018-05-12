@@ -6,8 +6,8 @@ import {
   START_NEW_GAME_REQUEST,
   TO_NEXT_SCREEN_REQUEST,
   LOAD_ALL_RESULTS,
-  SAVE_TIME,
-  SAVE_TIME_REQUEST
+  SET_TIME,
+  CHANGE_TIME_REQUEST
 } from '../constants'
 
 export function loadQuestionsSuccess(data) {
@@ -55,12 +55,12 @@ export function loadAllResults(data) {
 
 export function saveTimeRequest() {
   return {
-    type: SAVE_TIME_REQUEST,
+    type: CHANGE_TIME_REQUEST,
   }
 }
-export function saveTimeToStore(time) {
+export function setTimeToStore(time) {
   return {
-    type: SAVE_TIME,
+    type: SET_TIME,
     payload: time
   }
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import {startNewGameRequest, loadAllResultsRequest} from '../AC'
 import Preloader from './Preloader'
-
+import {getAnswers, getLoading, getResults} from "../selectors/index"
 
 class SuccessScreen extends Component {
   componentDidMount() {
@@ -31,11 +31,12 @@ class SuccessScreen extends Component {
     );
 
     const {time, correctAnswers} = currentResult;
-
+    const minutes = String(parseInt(time / 60, 10)).padStart(2, `0`);
+    const seconds = String(time % 60).padStart(2, `0`);
     return (
       <div>
         <h2 className="title">Вы настоящий меломан!</h2>
-        <div className="main-stat">За&nbsp;{time}&nbsp;минуты вы&nbsp;отгадали {correctAnswers}&nbsp;мелодии</div>
+        <div className="main-stat">За&nbsp;{minutes}:{seconds}&nbsp;минуты вы&nbsp;отгадали {correctAnswers}&nbsp;мелодии</div>
         <span  className="main-comparison">Это&nbsp;лучше чем у&nbsp;80%&nbsp;игроков</span>
       </div>
     )
@@ -46,7 +47,7 @@ class SuccessScreen extends Component {
 }
 
 export default connect(state => ({
-  correctAnswers: state.game.correctAnswers,
-  loading: state.info.loading,
-  results: state.info.results
+  correctAnswers: getAnswers(state),
+  loading: getLoading(state),
+  results: getResults(state)
 }), {startNewGameRequest, loadAllResultsRequest})(SuccessScreen);

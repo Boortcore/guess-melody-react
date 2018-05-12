@@ -3,9 +3,10 @@ import {GENRE_TYPE, ARTIST_TYPE} from '../constants'
 import GenreLevelScreen from './GenreLevelScreen';
 import ArtistLevelScreen from './ArtistLevelScreen';
 import {connect} from 'react-redux';
-import {getQuestion} from '../selectors'
+import {getQuestion, getCurrentLevel, getLoading} from '../selectors'
 import {goToNextScreen, loadQuestionsRequest} from '../AC'
-import Preloader from './Preloader'
+import Preloader from './Preloader';
+
 class GameScreen extends Component {
   componentDidMount() {
     this.props.loadQuestionsRequest()
@@ -30,6 +31,6 @@ class GameScreen extends Component {
 
 export default connect(state => ({
   question: getQuestion(state),
-  levelNumber: state.game.currentLevel,
-  loading: state.game.loading
+  levelNumber: getCurrentLevel(state),
+  loading: getLoading(state)
 }), {goToNextScreen, loadQuestionsRequest})(GameScreen);

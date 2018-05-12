@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {saveTimeRequest} from "../AC/index"
-
-const MAX_TIME = 120;
-const RADIUS = 370;
+import {getTime} from "../selectors/index"
+import {MAX_TIME, RADIUS} from "../constants/index"
 
 class Timer extends Component {
   constructor() {
@@ -13,16 +12,16 @@ class Timer extends Component {
     this.shadowRound = this.lengthRound / (MAX_TIME);
   }
   componentDidMount() {
-    const {time} = this.props;
-    const timerView = this.shadowRound * (MAX_TIME - time);
-    this.setState({timerView});
-
+    this.changeTime();
     this._interval = setInterval(() => {
-      const {time} = this.props;
-      this.props.saveTimeRequest();
-      const timerView = this.shadowRound * (MAX_TIME - time + 1);
-      this.setState({timerView})
+      this.changeTime()
     }, 1000)
+  }
+  changeTime() {
+    const {time} = this.props;
+    this.props.saveTimeRequest();
+    const timerView = this.shadowRound * (MAX_TIME - time + 1);
+    this.setState({timerView})
   }
   render() {
     const {time} = this.props;
@@ -54,5 +53,5 @@ class Timer extends Component {
 }
 
 export default connect(state => ({
-  time: state.game.time
+  time: getTime(state)
 }), {saveTimeRequest})(Timer);

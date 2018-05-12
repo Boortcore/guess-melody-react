@@ -1,4 +1,4 @@
-import {all, put, take, call, takeLatest, select} from 'redux-saga/effects'
+import {put, call, takeLatest, select} from 'redux-saga/effects'
 import {
   SET_LOADING,
   URL_QUESTION,
@@ -9,19 +9,23 @@ import {
   LOAD_QUESTIONS_REQUEST,
   SUCCESS_URL,
   FAIL_URL,
-  SAVE_TIME_REQUEST
-} from '../constants'
-import {loadQuestionsSuccess, loadQuestionsRequest, loadAllResults, saveTimeToStore} from "../AC/index"
+  CHANGE_TIME_REQUEST,
+  MAX_TIME
+} from '../constants';
+
+import {loadQuestionsSuccess, loadAllResults, setTimeToStore} from "../AC/index"
 import { push } from 'connected-react-router'
 
 import {
-  START_NEW_GAME_REQUEST, START_GAME_REQUEST, TO_NEXT_SCREEN_REQUEST, URL_STATISTIC,
-  SET_END_GAME, LOAD_ALL_RESULTS_REQUEST
+  START_NEW_GAME_REQUEST,
+  START_GAME_REQUEST,
+  TO_NEXT_SCREEN_REQUEST,
+  URL_STATISTIC,
+  LOAD_ALL_RESULTS_REQUEST
 } from "../constants/index";
 
 export function * loadQuestions() {
   try {
-    //yield put({type: SET_LOADING});
     const response = yield call(fetch, URL_QUESTION);
     const questions = yield call([response, response.json]);
     yield put(loadQuestionsSuccess(questions))
@@ -34,7 +38,6 @@ export function * goToStartNewGame() {
     type: RESET_STORE
   });
   yield put(push(START_GAME_URL));
-  yield put(loadQuestionsRequest())
 }
 
 export function * goToStartGame() {
@@ -61,8 +64,8 @@ export function * sendResult(data) {
 
 export function * goToSuccessScreen() {
   yield put({type: SET_LOADING});
-  const {time, correctAnswers} = yield select();
-  const data = {id: Date.now(), time, correctAnswers};
+  const {game: {time, correctAnswers}} = yield select();
+  const data = {id: Date.now(), time: MAX_TIME - time, correctAnswers};
   yield sendResult(data);
   yield put(push(SUCCESS_URL + data.id));
 }
@@ -84,7 +87,7 @@ export function * goToNextScreen({payload}) {
 export function * goToNextTick() {
   const {game} = yield select();
   const nextTime = game.time - 1;
-  yield put(saveTimeToStore(nextTime));
+  yield put(setTimeToStore(nextTime));
   if (nextTime <= 0) yield put(push(FAIL_URL))
 }
 export default function * rootSaga() {
@@ -93,5 +96,5 @@ export default function * rootSaga() {
   yield takeLatest(START_GAME_REQUEST, goToStartGame);
   yield takeLatest(TO_NEXT_SCREEN_REQUEST, goToNextScreen);
   yield takeLatest(LOAD_ALL_RESULTS_REQUEST, loadResults);
-  yield takeLatest(SAVE_TIME_REQUEST, goToNextTick)
+  yield takeLatest(CHANGE_TIME_REQUEST, goToNextTick)
 }

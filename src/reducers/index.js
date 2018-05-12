@@ -4,27 +4,25 @@ import {
   LOAD_QUESTIONS_SUCCESS,
   RESET_STORE,
   LOAD_ALL_RESULTS,
-  SAVE_TIME,
-  START_GAME_REQUEST
+  SET_TIME,
+  MAX_TIME
 } from "../constants/index"
 
 const initialState = {
   questions: [],
   lives: 3,
-  time: 120,
+  time: MAX_TIME,
   currentLevel: 0,
   correctAnswers: 0,
   loading: true,
-  results: null
+  results: null,
 };
 
 export default (state = initialState, {type, payload}) => {
   switch (type) {
-    case START_GAME_REQUEST:
-      return Object.assign({}, state, {loading: true});
     case SET_LOADING:
       return Object.assign({}, state, {loading: true});
-    case SAVE_TIME:
+    case SET_TIME:
       return Object.assign({}, state, {time: payload});
     case LOAD_QUESTIONS_SUCCESS:
       return Object.assign({}, state, {questions: payload, loading:false});
