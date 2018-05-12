@@ -25,13 +25,13 @@ class Timer extends Component {
     }, 1000)
   }
   render() {
-    const {time} = this.props
+    const {time} = this.props;
     const minutes = String(Math.floor(time / 60)).padStart(2, `0`);
     const seconds = String(Math.floor(time % 60)).padStart(2, `0`);
     return (
       <div className="main-timer">
-        <svg xmlns="http://www.w3.org/2000/svg" class="timer" viewBox="0 0 780 780" stroke-dasharray={this.lengthRound}
-             stroke-dashoffset={this.state.timerView}>
+        <svg xmlns="http://www.w3.org/2000/svg" className="timer" viewBox="0 0 780 780" strokeDasharray={this.lengthRound}
+             strokeDashoffset={this.state.timerView}>
           <circle
             cx="390" cy="390" r="370"
             className="timer-line"
@@ -54,5 +54,5 @@ class Timer extends Component {
 }
 
 export default connect(state => ({
-  time: state.info.time
+  time: state.game.time
 }), {saveTimeRequest})(Timer);

@@ -73,7 +73,7 @@ export function * goToNextScreen({payload}) {
     payload
   });
   const store = yield select();
-  const {lives, questions, currentLevel} = store;
+  const {lives, questions, currentLevel} = store.game;
   if (lives === 0) {
     yield put(push(FAIL_URL));
   }
@@ -82,8 +82,8 @@ export function * goToNextScreen({payload}) {
   }
 }
 export function * goToNextTick() {
-  const {info} = yield select();
-  const nextTime = info.time - 1;
+  const {game} = yield select();
+  const nextTime = game.time - 1;
   yield put(saveTimeToStore(nextTime));
   if (nextTime <= 0) yield put(push(FAIL_URL))
 }

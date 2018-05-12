@@ -2,12 +2,6 @@ import React, { Component } from 'react';
 import GenreAnswer from './GenreAnswer';
 import Timer from './Timer'
 class GenreLevelScreen extends Component {
-  constructor() {
-    super();
-    this.state = {
-
-    }
-  }
   componentWillMount() {
     const {answers} = this.props.question;
     answers.forEach((answer, index) => {
@@ -28,6 +22,7 @@ class GenreLevelScreen extends Component {
         <Timer/>
         <div className="main-wrap">
           <h2 className="title">{question.question}</h2>
+
           <form className="genre">
             {question.answers.map((answer, index) => {
               return <GenreAnswer key={answer.src} answer={this.state[`a-` + index]} onAnswer={this.chooseAnswer} />

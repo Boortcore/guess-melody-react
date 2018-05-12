@@ -46,7 +46,7 @@ class SuccessScreen extends Component {
 }
 
 export default connect(state => ({
-  correctAnswers: state.info.correctAnswers,
+  correctAnswers: state.game.correctAnswers,
   loading: state.info.loading,
   results: state.info.results
 }), {startNewGameRequest, loadAllResultsRequest})(SuccessScreen);
