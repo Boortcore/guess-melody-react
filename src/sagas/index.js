@@ -24,6 +24,8 @@ import {
   LOAD_ALL_RESULTS_REQUEST
 } from "../constants/index";
 
+import {getResults, getStatistic} from "../utils/index"
+
 export function * loadQuestions() {
   try {
     const response = yield call(fetch, URL_QUESTION);

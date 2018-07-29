@@ -36,9 +36,12 @@ class GenreLevelScreen extends Component {
 
   chooseAnswer = ({target}) => {
     const {id} = target;
-    const answer = this.state[id];
-    answer.checked = target.checked;
-    this.setState({[id]: answer})
+    this.setState(prevState => {
+      const newState = {...prevState}
+      const answer = newState[id];
+      answer.checked = target.checked;
+      return newState
+    })
   };
 
   onClickAnswer = (e) => {
