@@ -1,5 +1,4 @@
 export function getStatistic(results, hashId) {
-  debugger
   const currentResult = results.find((result) => result.id === hashId);
   if (!currentResult) {
     return null;

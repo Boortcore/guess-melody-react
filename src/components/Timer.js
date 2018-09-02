@@ -24,6 +24,7 @@ class Timer extends Component {
     this.setState({timerView});
   }
   render() {
+
     const {time} = this.props;
     const minutes = String(Math.floor(time / 60)).padStart(2, `0`);
     const seconds = String(Math.floor(time % 60)).padStart(2, `0`);

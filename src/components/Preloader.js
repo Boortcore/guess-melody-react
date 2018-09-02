@@ -18,7 +18,8 @@ export default () => {
             <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0	0 1 0 0 0	0 0 1 0 0	0 0 0 18 -7" result="goo" ></feColorMatrix>
           </filter>
         </defs>
-      </svg></div>
+      </svg>
+    </div>
   );
 }
 

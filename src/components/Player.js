@@ -9,7 +9,7 @@ class Player extends Component {
     this.player = null;
   }
   render() {
-    const {paused} = this.state
+    const {paused} = this.state;
     return (
       <div className="player">
         <audio ref={node => this.player = node} src={this.props.src}></audio>
