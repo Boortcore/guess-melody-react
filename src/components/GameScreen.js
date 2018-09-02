@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {GENRE_TYPE, ARTIST_TYPE} from '../constants'
-import GenreLevelScreen from './GenreLevelScreen';
+import GenreLevelScreen from './GenreLevelScreen/GenreLevelScreen';
 import ArtistLevelScreen from './ArtistLevelScreen';
 import {connect} from 'react-redux';
 import {getQuestion, getCurrentLevel, getLoading} from '../selectors'
@@ -25,6 +25,8 @@ class GameScreen extends Component {
         return GenreLevelScreen;
       case ARTIST_TYPE:
         return ArtistLevelScreen;
+      default:
+        return null;
     }
   }
 }

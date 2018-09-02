@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import GenreAnswer from './GenreAnswer';
-import Timer from './Timer'
+import GenreAnswer from '../GenreAnswer';
+import Timer from '../Timer'
 class GenreLevelScreen extends Component {
   componentWillMount() {
     const {answers} = this.props.question;
@@ -37,7 +37,7 @@ class GenreLevelScreen extends Component {
   chooseAnswer = ({target}) => {
     const {id} = target;
     this.setState(prevState => {
-      const newState = {...prevState}
+      const newState = {...prevState};
       const answer = newState[id];
       answer.checked = target.checked;
       return newState
@@ -48,10 +48,10 @@ class GenreLevelScreen extends Component {
     e.preventDefault();
     const answer = this.getAnswer();
     this.props.goToNextScreen(answer);
-  }
+  };
 
   getAnswer() {
-    const {genre} = this.props.question
+    const {genre} = this.props.question;
     return Object.values(this.state).every(answer => answer.genre !== genre && !answer.checked || answer.genre === genre && answer.checked)
   }
   isDisabled() {

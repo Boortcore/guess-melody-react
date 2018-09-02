@@ -23,7 +23,7 @@ class SuccessScreen extends Component {
   getDescription() {
     const { id } = this.props.match.params;
     const { results } = this.props;
-    const currentResult = results.find(result => result.id == id);
+    const currentResult = results.find(result => Number(result.id) === Number(id));
 
     if (!currentResult) return (
       <div>
