@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import {GENRE_TYPE, ARTIST_TYPE} from '../constants'
-import GenreLevelScreen from './GenreLevelScreen/GenreLevelScreen';
-import ArtistLevelScreen from './ArtistLevelScreen';
-import {connect} from 'react-redux';
-import {getQuestion, getCurrentLevel, getLoading} from '../selectors'
-import {goToNextScreen, loadQuestionsRequest} from '../AC'
-import Preloader from './Preloader';
+import {GENRE_TYPE, ARTIST_TYPE} from '../../../constants/index'
+import GenreLevelScreen from './GenreLevelScreen/index';
+import ArtistLevelScreen from './ArtistLevelScreen/index';
+import Preloader from '../../Preloader/Preloader';
 
 class GameScreen extends Component {
   componentDidMount() {
@@ -31,8 +28,4 @@ class GameScreen extends Component {
   }
 }
 
-export default connect(state => ({
-  question: getQuestion(state),
-  levelNumber: getCurrentLevel(state),
-  loading: getLoading(state)
-}), {goToNextScreen, loadQuestionsRequest})(GameScreen);
+export default GameScreen;

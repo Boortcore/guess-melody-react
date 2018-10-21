@@ -4,8 +4,7 @@ import {
   LOAD_QUESTIONS_SUCCESS,
   RESET_STORE,
   LOAD_ALL_RESULTS,
-  SET_TIME,
-  MAX_TIME
+  SET_TIME
 } from "../constants/index"
 import initialState from './initState'
 

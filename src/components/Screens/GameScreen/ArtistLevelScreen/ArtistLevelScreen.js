@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
-import ArtistAnswer from '../ArtistAnswer';
-import Timer from '../Timer';
-import Player from '../Player';
+import React from 'react';
+import ArtistAnswer from './ArtistAnswer/index';
+import Timer from '../../../Timer';
+import Player from '../../../Player/Player';
 
-class ArtistLevelScreen extends Component {
-  render() {
-    const {question: {src, title, answers}, onClickAnswer} = this.props;
+function ArtistLevelScreen(props) {
+    const {question: {src, title, answers}, onClickAnswer} = props;
     return (
       <section className="main main--level main--level-artist">
         <Timer/>
@@ -20,8 +19,6 @@ class ArtistLevelScreen extends Component {
         </div>
       </section>
     );
-  }
-
 }
 
 export default ArtistLevelScreen;

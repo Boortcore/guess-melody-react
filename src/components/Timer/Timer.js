@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
-import {changeTimeRequest} from "../AC/index"
-import {getTime} from "../selectors/index"
-import {MAX_TIME, RADIUS} from "../constants/index"
+import {MAX_TIME, RADIUS} from "../../constants/index"
 
 class Timer extends Component {
   constructor() {
@@ -24,7 +21,6 @@ class Timer extends Component {
     this.setState({timerView});
   }
   render() {
-
     const {time} = this.props;
     const minutes = String(Math.floor(time / 60)).padStart(2, `0`);
     const seconds = String(Math.floor(time % 60)).padStart(2, `0`);
@@ -52,6 +48,4 @@ class Timer extends Component {
   }
 }
 
-export default connect(state => ({
-  time: getTime(state)
-}), {changeTimeRequest})(Timer);
+export default Timer;

@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux'
-import {startNewGameRequest} from '../AC'
 class FailScreen extends Component {
   render() {
-
     return (
       <section className="main main--result">
         <section className="logo" title="Угадай мелодию"><h1>Угадай мелодию</h1></section>
@@ -14,8 +11,8 @@ class FailScreen extends Component {
     );
   }
   onClickToNewGame = () => {
-    this.props.startNewGameRequest()
+    this.props.startGameRequest()
   }
 }
 
-export default connect(null, {startNewGameRequest})(FailScreen);
+export default FailScreen;

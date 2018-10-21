@@ -15,7 +15,6 @@ export const URL_STATISTIC = `https://intensive-ecmascript-server-btfgudlkpi.now
 export const CHANGE_SCREEN = 'CHANGE_SCREEN';
 export const GENRE_TYPE = 'genre';
 export const ARTIST_TYPE = 'artist';
-export const START_NEW_GAME_REQUEST = 'START_NEW_GAME_REQUEST';
 export const START_GAME_REQUEST = 'START_GAME_REQUEST';
 export const TO_NEXT_SCREEN_REQUEST = 'TO_NEXT_SCREEN_REQUEST';
 

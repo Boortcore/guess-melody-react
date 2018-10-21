@@ -3,7 +3,6 @@ import {
   LOAD_QUESTIONS_SUCCESS,
   LOAD_ALL_RESULTS_REQUEST,
   START_GAME_REQUEST,
-  START_NEW_GAME_REQUEST,
   TO_NEXT_SCREEN_REQUEST,
   LOAD_ALL_RESULTS,
   SET_TIME,
@@ -26,12 +25,6 @@ export function loadQuestionsRequest() {
 export function startGameRequest() {
   return {
     type: START_GAME_REQUEST
-  }
-}
-
-export function startNewGameRequest() {
-  return {
-    type: START_NEW_GAME_REQUEST
   }
 }
 

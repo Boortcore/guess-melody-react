@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {Route} from 'react-router';
-import WelcomeScreen from './components/WelcomeScreen';
-import GameScreen from "./components/GameScreen";
-import FailScreen from './components/FailScreen';
-import SuccessScreen from "./components/SuccessScreen";
+import WelcomeScreen from './components/Screens/WelcomeScreen';
+import GameScreen from "./components/Screens/GameScreen";
+import FailScreen from './components/Screens/FailScreen';
+import SuccessScreen from "./components/Screens/SuccessScreen";
 class App extends Component {
   render() {
     return (
