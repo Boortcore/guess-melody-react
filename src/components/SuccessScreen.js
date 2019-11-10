@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
-import {startNewGameRequest, loadAllResultsRequest} from '../AC'
+import {startNewGame, loadAllResults} from '../AC'
 import Preloader from './Preloader'
 import {getAnswers, getLoading, getResults} from "../selectors/index"
 import {getStatistic} from "../utils/index"
 
 class SuccessScreen extends Component {
   componentDidMount() {
-    this.props.loadAllResultsRequest()
+    this.props.loadAllResults()
   }
   render() {
     if (this.props.loading) return <Preloader/>;
@@ -46,7 +46,7 @@ class SuccessScreen extends Component {
     )
   }
   onClickToNewGame = () => {
-    this.props.startNewGameRequest()
+    this.props.startNewGame()
   }
 }
 
@@ -54,4 +54,4 @@ export default connect(state => ({
   correctAnswers: getAnswers(state),
   loading: getLoading(state),
   results: getResults(state)
-}), {startNewGameRequest, loadAllResultsRequest})(SuccessScreen);
+}), {startNewGame, loadAllResults})(SuccessScreen);

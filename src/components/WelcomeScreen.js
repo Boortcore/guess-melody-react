@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {startGameRequest} from "../AC/index"
+import {startGame} from "../AC/index"
 class WelcomeScreen extends Component {
   render() {
     const {startGameRequest} = this.props;
@@ -19,4 +19,4 @@ class WelcomeScreen extends Component {
   }
 }
 
-export default connect(null, {startGameRequest})(WelcomeScreen);
+export default connect(null, {startGame})(WelcomeScreen);

@@ -5,7 +5,7 @@ import {
   START_GAME_REQUEST,
   START_NEW_GAME_REQUEST,
   TO_NEXT_SCREEN_REQUEST,
-  LOAD_ALL_RESULTS,
+  LOAD_ALL_RESULTS_SUCCESS,
   SET_TIME,
   CHANGE_TIME_REQUEST
 } from '../constants'
@@ -17,19 +17,19 @@ export function loadQuestionsSuccess(data) {
   }
 }
 
-export function loadQuestionsRequest() {
+export function loadQuestions() {
   return {
     type: LOAD_QUESTIONS_REQUEST,
   }
 }
 
-export function startGameRequest() {
+export function startGame() {
   return {
     type: START_GAME_REQUEST
   }
 }
 
-export function startNewGameRequest() {
+export function startNewGame() {
   return {
     type: START_NEW_GAME_REQUEST
   }
@@ -41,19 +41,19 @@ export function goToNextScreen(answer) {
     payload: answer
   }
 }
-export function loadAllResultsRequest() {
+export function loadAllResults() {
   return {
     type: LOAD_ALL_RESULTS_REQUEST,
   }
 }
-export function loadAllResults(data) {
+export function loadResultsSuccess(data) {
   return {
-    type: LOAD_ALL_RESULTS,
+    type: LOAD_ALL_RESULTS_SUCCESS,
     payload: data
   }
 }
 
-export function changeTimeRequest() {
+export function changeTime() {
   return {
     type: CHANGE_TIME_REQUEST,
   }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
-import {startNewGameRequest} from '../AC'
+import {startNewGame} from '../AC'
 class FailScreen extends Component {
   render() {
 
@@ -9,13 +9,14 @@ class FailScreen extends Component {
         <section className="logo" title="Угадай мелодию"><h1>Угадай мелодию</h1></section>
         <h2 className="title">Вы проиграли</h2>
         <div className="main-stat">Ничего, вам повезет в следующий раз</div>
-        <span onClick={this.onClickToNewGame} role="button" tabIndex="0" className="main-replay">Сыграть ещё раз</span>
+        <span onClick={this.onClick} role="button" tabIndex="0" className="main-replay">Сыграть ещё раз</span>
       </section>
     );
   }
-  onClickToNewGame = () => {
-    this.props.startNewGameRequest()
+
+  onClick = () => {
+    this.props.startNewGame()
   }
 }
 
-export default connect(null, {startNewGameRequest})(FailScreen);
+export default connect(null, {startNewGame})(FailScreen);

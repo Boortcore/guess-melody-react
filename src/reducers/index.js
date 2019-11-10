@@ -3,9 +3,8 @@ import {
   SET_LOADING,
   LOAD_QUESTIONS_SUCCESS,
   RESET_STORE,
-  LOAD_ALL_RESULTS,
+  LOAD_ALL_RESULTS_SUCCESS,
   SET_TIME,
-  MAX_TIME
 } from "../constants/index"
 
 const initialState = {
@@ -26,7 +25,7 @@ export default (state = initialState, {type, payload}) => {
       return Object.assign({}, state, {time: payload});
     case LOAD_QUESTIONS_SUCCESS:
       return Object.assign({}, state, {questions: payload, loading:false});
-    case LOAD_ALL_RESULTS:
+    case LOAD_ALL_RESULTS_SUCCESS:
       return Object.assign({}, state, {results: payload,  loading: false});
     case CHANGE_SCREEN:
       const lives = payload ? state.lives : state.lives - 1;
