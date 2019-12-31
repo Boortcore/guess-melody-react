@@ -1,8 +1,13 @@
-import {compose} from 'recompose'
 import FailScreen from './FailScreen'
-import {startGameRequest} from '../../../AC/index'
 import {connect} from 'react-redux'
+import {compose, withHandlers} from 'recompose'
+import {startGameRequest} from '../../../AC/index'
 
 export default compose(
-  connect(null, {startGameRequest})
+  connect(null, {startGameRequest}),
+  withHandlers({
+    onClick: ({startGameRequest}) => () => {
+      startGameRequest()
+    }
+  })
 )(FailScreen)

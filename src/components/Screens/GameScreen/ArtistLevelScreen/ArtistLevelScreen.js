@@ -1,7 +1,7 @@
 import React from 'react';
 import ArtistAnswer from './ArtistAnswer/index';
 import Timer from '../../../Timer';
-import Player from '../../../Player/Player';
+import Player from '../../../Player';
 
 function ArtistLevelScreen(props) {
     const {question: {src, title, answers}, onClickAnswer} = props;
