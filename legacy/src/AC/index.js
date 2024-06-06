@@ -8,7 +8,7 @@ import {
   LOAD_ALL_RESULTS,
   SET_TIME,
   CHANGE_TIME_REQUEST
-} from '../constants';
+} from '../constants'
 
 export function loadQuestionsSuccess(data) {
   return {
