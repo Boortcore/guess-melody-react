@@ -1,0 +1,34 @@
+[
+  {
+    "type": "artist",
+    "answers": [
+      { "image": { "url": "" }, "isCorrect": true, "title": "Eminem" },
+      { "image": { "url": "" }, "isCorrect": false, "title": "Some one" },
+      { "image": { "url": "" }, "isCorrect": false, "title": "Some one" }
+    ]
+  },
+  {
+    "type": "artist",
+    "answers": [
+      { "image": { "url": "" }, "isCorrect": true, "title": "Eminem" },
+      { "image": { "url": "" }, "isCorrect": false, "title": "Some one" },
+      { "image": { "url": "" }, "isCorrect": false, "title": "Some one" }
+    ]
+  },
+  {
+    "type": "artist",
+    "answers": [
+      { "image": { "url": "" }, "isCorrect": true, "title": "Eminem" },
+      { "image": { "url": "" }, "isCorrect": false, "title": "Some one" },
+      { "image": { "url": "" }, "isCorrect": false, "title": "Some one" }
+    ]
+  },
+  {
+    "type": "artist",
+    "answers": [
+      { "image": { "url": "" }, "isCorrect": true, "title": "Eminem" },
+      { "image": { "url": "" }, "isCorrect": false, "title": "Some one" },
+      { "image": { "url": "" }, "isCorrect": false, "title": "Some one" }
+    ]
+  }
+]
