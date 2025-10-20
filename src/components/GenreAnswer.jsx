@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import Player from './Player';
 class GenreAnswer extends Component {
   render() {

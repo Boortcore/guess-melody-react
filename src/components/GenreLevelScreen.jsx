@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import GenreAnswer from './GenreAnswer';
 import Timer from './Timer';
 class GenreLevelScreen extends Component {

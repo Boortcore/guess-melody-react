@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { GENRE_TYPE, ARTIST_TYPE } from '../constants';
 import GenreLevelScreen from './GenreLevelScreen';
 import ArtistLevelScreen from './ArtistLevelScreen';
